@@ -2,10 +2,10 @@ import json
 
 import jinja2
 
-with open("coffee_breaks.json") as breaks_file:
-    coffee_breaks = breaks_file.read()
+with open("tea_breaks.json") as breaks_file:
+    tea_breaks = breaks_file.read()
 
-template = jinja2.Template(open("index.html").read())
+template = jinja2.Template(open("templates/index.html").read())
 
 with open("out.html", "w+") as file:
-    file.write(template.render(data=coffee_breaks, json=json.loads(coffee_breaks)))
+    file.write(template.render(data=tea_breaks, json=json.loads(tea_breaks)))

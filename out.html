@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>James' Coffee Breaks</title>
+        <link rel="stylesheet" href="https://jamesg.blog/assets/styles/styles.css">
+        <script src="https://d3js.org/d3.v4.js"></script>
+
+        <style>
+            ul {
+                padding: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <main id="main">
+            <nav id="top_navigation">
+                <p>James' Coffee Tracker</p>
+            </nav>
+            <h1>James' Coffee Tracker</h1>
+
+            <ul>
+                <li>Latest coffee made 🕛: 10:36:57.616454</li>
+                <li>Coffees made today ☕: 1</li>
+            </ul>
+
+            <div id="my_dataviz"></div>
+
+            <script>
+                var margin = {top: 30, right: 30, bottom: 70, left: 60},
+                    width = 460 - margin.left - margin.right,
+                    height = 400 - margin.top - margin.bottom;
+
+                // append the svg object to the body of the page
+                var svg = d3.select("#my_dataviz")
+                .append("svg")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                    .attr("transform",
+                        "translate(" + margin.left + "," + margin.top + ")");
+
+                var data = [{"start": "2022-11-04 10:36:57.616454", "is_ongoing": false, "end": "2022-11-04 10:37:09.388008", "duration": 11.771554}];
+
+                // X axis
+                var x = d3.scaleBand()
+                .range([ 0, width ])
+                .domain(data.map(function(d) { return d.start }))
+                .padding(0.2);
+                svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x))
+                .selectAll("text")
+                    .attr("transform", "translate(-10,0)rotate(-45)")
+                    .style("text-anchor", "end");
+
+                // Add Y axis
+                var y = d3.scaleLinear()
+                .domain([0, 60])
+                .range([ height, 0]);
+                svg.append("g")
+                .call(d3.axisLeft(y));
+
+                // Bars
+                svg.selectAll("mybar")
+                .data(data)
+                .enter()
+                .append("rect")
+                    .attr("x", function(d) { return x(d.start); })
+                    .attr("y", function(d) { return y(d.duration); })
+                    .attr("width", x.bandwidth())
+                    .attr("height", function(d) { return height - y(d.duration) - 10; })
+                    .attr("fill", "#1E28BB63")
+
+            </script>
+        </main>
+    </body>
+</html>
