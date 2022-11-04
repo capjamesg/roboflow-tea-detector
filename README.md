@@ -4,6 +4,12 @@ A computer vision model deployed on a Luxonis OAK camera to monitor my tea intak
 
 When a tea break starts or ends, your Slack status can optionally be updated to reflect that you are making a cup of tea.
 
+## Screenshots
+
+![A photo of a mug, a box, and three bowls stacked, with a bounding box around and label above the mug](screenshots/mug.jpeg)
+
+![Active Slack status with the label "making tea"](screenshots/slack.jpeg)
+
 ## What You'll Need
 
 To run this project, you will need:

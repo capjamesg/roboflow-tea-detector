@@ -7,7 +7,7 @@ import cv2
 from roboflowoak import RoboflowOak
 from slack_sdk import WebClient
 
-DELAY = 60
+DELAY = 4
 ACTIVE_RECORD = {
     "status_text": "making tea",
     "status_emoji": ":teapot:",
@@ -138,7 +138,7 @@ def main():
                 end_tea_break()
 
         # displaying the video feed as successive frames
-        # cv2.imshow("frame", frame)
+        cv2.imshow("frame", frame)
 
         # how to close the OAK inference window / stop inference: CTRL+q or CTRL+c
         if cv2.waitKey(1) == ord("q"):
