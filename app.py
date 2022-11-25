@@ -89,7 +89,7 @@ def main():
 
     # instantiating an object (rf) with the RoboflowOak module
     # API Key: https://docs.roboflow.com/rest-api#obtaining-your-api-key
-    rf = RoboflowOak(model="mug-detector-0akq7", confidence=0.5, overlap=0.5,
+    rf = RoboflowOak(model=os.environ.get("ROBOFLOW_PROJECT"), confidence=0.5, overlap=0.5,
     version="4", api_key=os.environ.get("ROBOFLOW_KEY"), rgb=True,
     depth=True, device=None, blocking=True)
     # Running our model and displaying the video output with detections
