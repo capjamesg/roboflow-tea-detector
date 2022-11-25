@@ -4,6 +4,8 @@ A computer vision model deployed on a Luxonis OAK camera to monitor my tea intak
 
 When a tea break starts or ends, your Slack status can optionally be updated to reflect that you are making a cup of tea.
 
+This project and an accompanying tutorial are documented in the [Monitoring My Caffeine Intake with Computer Vision](https://blog.roboflow.com/caffeine-monitoring-computer-vision/) post on the Roboflow blog.
+
 ## Screenshots
 
 ![A photo of a mug, a box, and three bowls stacked, with a bounding box around and label above the mug](screenshots/mug.jpeg)
@@ -89,4 +91,4 @@ The source code for this project is licensed under an [MIT license](LICENSE).
 
 ## Acknowledgments
 
-This model was built using Roboflow.
+This model was built using [Roboflow](https://roboflow.com).
